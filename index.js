@@ -4,14 +4,16 @@ const axios = require("axios");
 
 require("dotenv").config();
 
-const app = express().use(body_parser.json);
+const app = express().use(body_parser.json());
+const app_port = process.env.PORT || 8000;
 
-app.listen(8000 || process.env.PORT, () => {
-  console.log("Webhook is running...");
+app.listen(app_port, () => {
+  console.log(`Webhook is running on port ${app_port}.`);
 });
 
 const app_token = process.env.APP_TOKEN;
 const webhook_token = process.env.WEBHOOK_TOKEN;
+
 
 // to verify the callback url from dashboard side - cloud api side
 app.get("/webhook", (req, res) => {
@@ -69,4 +71,9 @@ app.post("/webhook", (req, res) => {
       res.sendStatus(404);
     }
   }
+});
+
+
+app.get("/", (req, res) => {
+  res.status(200).send("Webhook setup whatsapp API");
 });
