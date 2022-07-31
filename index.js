@@ -36,6 +36,7 @@ app.get("/webhook", (req, res) => {
 app.post("/webhook", (req, res) => {
   let body_params = req.body;
 
+  console.log("Body of the request: ");
   console.log(JSON.stringify(body_params, null, 2));
 
   if (body_params.object) {
@@ -58,7 +59,7 @@ app.post("/webhook", (req, res) => {
           to: from,
           type: "text",
           text: {
-            body: `reply to ${message_body}`,
+            body: `reply to ${message_body}, your number is ${phone_number_id}`,
           }
         },
         headers: {
