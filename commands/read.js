@@ -16,3 +16,5 @@ const markAsRead = (wpp_message_id, my_phone_number) => {
 
   return;
 }
+
+module.exports = markAsRead;
