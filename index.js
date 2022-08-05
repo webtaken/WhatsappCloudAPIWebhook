@@ -4,6 +4,9 @@ const axios = require("axios");
 const wpp_extractor_data = require("./FlowFunctions/DataExtractor");
 const markAsRead = require("./commands/read");
 const DataExtractor = require("./FlowFunctions/DataExtractor");
+const CommandSelector = require("./commands/CommandSelector");
+const HelpCommand = require("./commands/HelpCommand");
+const ErrorCommand = require("./commands/ErrorCommand");
 
 require("dotenv").config();
 
@@ -16,7 +19,6 @@ app.listen(app_port, () => {
 
 const app_token = process.env.APP_TOKEN;
 const webhook_token = process.env.WEBHOOK_TOKEN;
-
 
 // to verify the callback url from dashboard side - cloud api side
 app.get("/webhook", (req, res) => {
@@ -50,6 +52,35 @@ app.post("/webhook", (req, res) => {
     // enviamos nuestro el id del mensaje recibido y nuestro número de teléfono
     markAsRead(message_id, extracted_data.my_phone_number);
 
+    // ahora verificamos que el siguiente mensaje sea un comando disponible
+    let command = CommandSelector(extracted_data.message);
+    // si no es nulo proseguimos
+    if (command) {
+      switch (command) {
+        case "!ayuda":
+          // enviamos el mensaje de ayuda
+          HelpCommand(
+            extracted_data.my_phone_number,
+            extracted_data.sender_name,
+            extracted_data.sender_phone_number);
+          break;
+        case "!quienes_somos":
+          break;
+        case "!mision":
+          break;
+        case "!servicios":
+          break;
+        case "!contacto":
+          break;
+        default: // por defecto se manejará como error
+          ErrorCommand(
+            extracted_data.my_phone_number,
+            extracted_data.sender_name,
+            extracted_data.sender_phone_number);
+          break;
+      }
+
+    }
     res.sendStatus(200);
   } else {
     res.sendStatus(404);
