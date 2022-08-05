@@ -39,12 +39,12 @@ app.get("/webhook", (req, res) => {
 app.post("/webhook", (req, res) => {
   let body_params = req.body;
 
-  console.log("Body of the request: ");
-  console.log(JSON.stringify(body_params, null, 2));
+  // console.log("Body of the request: ");
+  // console.log(JSON.stringify(body_params, null, 2));
 
   // extraemos la data de los mensajes
   const extracted_data = DataExtractor(body_params);
-
+  console.log(extracted_data);
   // verificamos que hay datos disponibles
   if (extracted_data) {
     let message_id = extracted_data.message.id;
