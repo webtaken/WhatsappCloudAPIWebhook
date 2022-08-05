@@ -2,9 +2,7 @@ const sendWppRequest = require('../FlowFunctions/sendWhatsappRequest');
 
 const HelpCommand = (my_phone_number, username, to_phone_number) => {
   let messages_list = [
-    `Hola 👋 ${username} soy Telebot 🤖 el asistente virtual de Telemark y he venido a ayudarte, 
-    a continuación te muestro los comandos disponibles y su descripción, recuerda agregar '!' antes
-    de cada comando: `,
+    `Hola 👋 ${username} soy Telebot 🤖 el asistente virtual de Telemark y he venido a ayudarte, a continuación te muestro los comandos disponibles y su descripción, recuerda agregar '!' antes de cada comando: `,
     "!ayuda: 📃 este comando te muestra nuestra la lista de comandos disponibles y su descripción.",
     "!quienes_somos: ✋ conoce mas de esta naciente compañía de marketing digital.",
     "!mision: 🎗 nuestros valores nos definen, conoce nuestro propósito.",
