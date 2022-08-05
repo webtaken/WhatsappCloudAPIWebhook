@@ -8,8 +8,7 @@ const ErrorCommand = (my_phone_number, username, to_phone_number) => {
     to: to_phone_number,
     type: "text",
     text: {
-      body: `Hola ${username} el comando que escribiste no fue reconocido, escribe "!ayuda" para \ 
-      ver la lista de comandos disponibles.`
+      body: `Hola ${username} el comando que escribiste no fue reconocido, escribe "!ayuda" para ver la lista de comandos disponibles.`
     }
   }
 
