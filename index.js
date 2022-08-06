@@ -5,8 +5,9 @@ const wpp_extractor_data = require("./FlowFunctions/DataExtractor");
 const markAsRead = require("./commands/read");
 const DataExtractor = require("./FlowFunctions/DataExtractor");
 const CommandSelector = require("./commands/CommandSelector");
-const HelpCommand = require("./commands/HelpCommand");
+const AyudaCommand = require("./commands/AyudaCommand");
 const ErrorCommand = require("./commands/ErrorCommand");
+const QuienesSomosCommand = require("./commands/QuienesSomosCommand");
 
 require("dotenv").config();
 
@@ -59,14 +60,16 @@ app.post("/webhook", (req, res) => {
       switch (command) {
         case "!ayuda":
           // enviamos el mensaje de ayuda
-          HelpCommand(
+          AyudaCommand(
             extracted_data.my_phone_number,
             extracted_data.sender_name,
             extracted_data.sender_phone_number);
           break;
         case "!quienes_somos":
-          break;
-        case "!mision":
+          QuienesSomosCommand(
+            extracted_data.my_phone_number,
+            extracted_data.sender_name,
+            extracted_data.sender_phone_number);
           break;
         case "!servicios":
           break;
