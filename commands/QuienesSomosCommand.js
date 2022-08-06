@@ -9,7 +9,7 @@ const QuienesSomosCommand = (my_phone_number, username, to_phone_number) => {
     recipient_type: "individual",
     to: to_phone_number,
     type: "image",
-    text: {
+    image: {
       link: "https://i.imgur.com/mdJ5UQh.png",
       caption: captionImage
     }
