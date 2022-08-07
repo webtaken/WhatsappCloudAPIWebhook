@@ -31,7 +31,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       type: "list",
       header: {
         type: "text",
-        text: "Servicios de *Telemark*"
+        text: "Servicios de Telemark"
       },
       body: {
         text: `Hola ${username}, a continuación te mostramos la lista de nuestros servicios, selecciona un servicio de cada sección para ver su descripción o también puedes seleccionar la opción *PDF* para descargar nuestro documento 📄 de presentación donde te mostramos todos los servicios.`
@@ -126,7 +126,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
   sendWppRequest({
     method: 'POST',
-    data: servicesList,
+    data: anotherServicesList,
     phone_number_id: my_phone_number,
   });
   return;
