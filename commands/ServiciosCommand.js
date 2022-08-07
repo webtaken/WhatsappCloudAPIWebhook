@@ -61,7 +61,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
             rows: [
               {
                 id: services_metadata.marketing.content_generation.id,
-                title: "Generación de contenido",
+                title: "Generación de contenido"
               }
             ]
           }
@@ -77,8 +77,6 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
   });
   return;
 }
-
-
 
 
 module.exports.ServiciosCommand = ServiciosCommand;
