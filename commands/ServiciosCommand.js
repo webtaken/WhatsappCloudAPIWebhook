@@ -78,7 +78,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       "type": "list",
       "header": {
         "type": "text",
-        "text": "Servicios de *Telemark*"
+        "text": "Servicios de Telemark"
       },
       "body": {
         "text": "<BODY_TEXT>"
