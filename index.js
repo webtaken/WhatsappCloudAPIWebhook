@@ -1,13 +1,15 @@
 const express = require("express");
 const body_parser = require("body-parser");
 const axios = require("axios");
-const wpp_extractor_data = require("./FlowFunctions/DataExtractor");
-const markAsRead = require("./commands/read");
+
 const DataExtractor = require("./FlowFunctions/DataExtractor");
+// modulos de comandos
+const markAsRead = require("./commands/read");
 const CommandSelector = require("./commands/CommandSelector");
 const AyudaCommand = require("./commands/AyudaCommand");
 const ErrorCommand = require("./commands/ErrorCommand");
 const QuienesSomosCommand = require("./commands/QuienesSomosCommand");
+const ServiciosCommand = require("./commands/ServiciosCommand").ServiciosCommand;
 
 require("dotenv").config();
 

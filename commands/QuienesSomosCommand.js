@@ -1,7 +1,7 @@
 const sendWppRequest = require('../FlowFunctions/sendWhatsappRequest');
 
 const QuienesSomosCommand = (my_phone_number, username, to_phone_number) => {
-  let captionImage = `Saludos ${username} somos *_Telemark_* una empresa comprometida con el marketing digital 📢, somos un emprendimiento que surgió para ayudar a los emprendedores digitales a mejorar sus ventas por las redes sociales 📱, trabajamos para mejorar la experiencia de tus usuarios y brindarte herramientas automatizadas que disminuyan tus tareas rutinarias y pienses en lo más importante _hacer crecer tu negocio_ 💪.`;
+  let captionImage = `Saludos ${username} somos *_Telemark_* una empresa comprometida con el marketing digital 📢, somos un emprendimiento que surgió para ayudar a los emprendedores digitales a mejorar sus ventas por las redes sociales 📱, trabajamos para mejorar la experiencia de tus usuarios y brindarte herramientas automatizadas que disminuyan tus tareas rutinarias y pienses en lo más importante *_hacer crecer tu negocio_* 💪.`;
 
   const sendMessage = {
     messaging_product: "whatsapp",
