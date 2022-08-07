@@ -39,33 +39,33 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       footer: {
         text: "Lista de servicios"
       },
-      // action: {
-      //   button: "Ver servicios",
-      //   sections: [
-      //     {
-      //       title: "Automatización",
-      //       rows: [
-      //         {
-      //           id: services_metadata.automatization.chatbot.id,
-      //           title: "Chatbots de Whatsapp"
-      //         },
-      //         {
-      //           id: services_metadata.automatization.promotions.id,
-      //           title: "Campañas automatizadas"
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: "Marketing",
-      //       rows: [
-      //         {
-      //           id: services_metadata.marketing.content_generation.id,
-      //           title: "Generación de contenido"
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // }
+      action: {
+        button: "Ver servicios",
+        sections: [
+          //   {
+          //     title: "Automatización",
+          //     rows: [
+          //       {
+          //         id: services_metadata.automatization.chatbot.id,
+          //         title: "Chatbots de Whatsapp"
+          //       },
+          //       {
+          //         id: services_metadata.automatization.promotions.id,
+          //         title: "Campañas automatizadas"
+          //       }
+          //     ]
+          //   },
+          //   {
+          //     title: "Marketing",
+          //     rows: [
+          //       {
+          //         id: services_metadata.marketing.content_generation.id,
+          //         title: "Generación de contenido"
+          //       }
+          //     ]
+          //   }
+        ]
+      }
     }
   };
 
