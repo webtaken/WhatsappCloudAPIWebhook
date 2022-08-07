@@ -8,7 +8,7 @@ const sendWppRequest = (conf) => {
     {
       method: conf.method,
       url: `https://graph.facebook.com/v13.0/${conf.phone_number_id}/messages?access_token=${app_token}`,
-      data: conf.data,
+      data: JSON.stringify(conf.data),
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.APP_TOKEN}`
