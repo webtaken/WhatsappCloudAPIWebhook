@@ -22,8 +22,8 @@ let services_metadata = {
 
 const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
-  const anotherServicesList = {
-    "messaging_product": "whatsapp",
+  const servicesList = {
+    messaging_product: "whatsapp",
     recipient_type: "individual",
     to: to_phone_number,
     type: "interactive",
@@ -31,7 +31,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       type: "list",
       header: {
         type: "text",
-        text: "Servicios de Telemark"
+        text: "Servicios de Telemark" // nunca colocar en las secciones de títulos un * (asterisco)
       },
       body: {
         text: `Hola ${username}, a continuación te mostramos la lista de nuestros servicios, selecciona un servicio de cada sección para ver su descripción o también puedes seleccionar la opción *PDF* para descargar nuestro documento 📄 de presentación donde te mostramos todos los servicios.`
@@ -69,64 +69,10 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
     }
   };
 
-  const servicesList = {
-    "messaging_product": "whatsapp",
-    "recipient_type": "individual",
-    "to": to_phone_number,
-    "type": "interactive",
-    "interactive": {
-      "type": "list",
-      "header": {
-        "type": "text",
-        "text": "Servicios de Telemark"
-      },
-      "body": {
-        "text": "<BODY_TEXT>"
-      },
-      "footer": {
-        "text": "<FOOTER_TEXT>"
-      },
-      "action": {
-        "button": "<BUTTON_TEXT>",
-        "sections": [
-          {
-            "title": "<LIST_SECTION_1_TITLE>",
-            "rows": [
-              {
-                "id": "<LIST_SECTION_1_ROW_1_ID>",
-                "title": "<SECTION_1_ROW_1_TITLE>",
-                "description": "<SECTION_1_ROW_1_DESC>"
-              },
-              {
-                "id": "<LIST_SECTION_1_ROW_2_ID>",
-                "title": "<SECTION_1_ROW_2_TITLE>",
-                "description": "<SECTION_1_ROW_2_DESC>"
-              }
-            ]
-          },
-          {
-            "title": "<LIST_SECTION_2_TITLE>",
-            "rows": [
-              {
-                "id": "<LIST_SECTION_2_ROW_1_ID>",
-                "title": "<SECTION_2_ROW_1_TITLE>",
-                "description": "<SECTION_2_ROW_1_DESC>"
-              },
-              {
-                "id": "<LIST_SECTION_2_ROW_2_ID>",
-                "title": "<SECTION_2_ROW_2_TITLE>",
-                "description": "<SECTION_2_ROW_2_DESC>"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
 
   sendWppRequest({
     method: 'POST',
-    data: anotherServicesList,
+    data: servicesList,
     phone_number_id: my_phone_number,
   });
   return;
