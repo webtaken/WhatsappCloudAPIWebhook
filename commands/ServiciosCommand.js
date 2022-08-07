@@ -126,7 +126,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
   sendWppRequest({
     method: 'POST',
-    data: anotherServicesList,
+    data: servicesList,
     phone_number_id: my_phone_number,
   });
   return;
