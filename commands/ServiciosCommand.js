@@ -23,7 +23,7 @@ let services_metadata = {
 const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
   const anotherServicesList = {
-    messaging_product: "whatsapp",
+    "messaging_product": "whatsapp",
     recipient_type: "individual",
     to: to_phone_number,
     type: "interactive",
