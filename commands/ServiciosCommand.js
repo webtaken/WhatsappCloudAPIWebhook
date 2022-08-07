@@ -42,28 +42,28 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       action: {
         button: "Ver servicios",
         sections: [
-          //   {
-          //     title: "Automatización",
-          //     rows: [
-          //       {
-          //         id: services_metadata.automatization.chatbot.id,
-          //         title: "Chatbots de Whatsapp"
-          //       },
-          //       {
-          //         id: services_metadata.automatization.promotions.id,
-          //         title: "Campañas automatizadas"
-          //       }
-          //     ]
-          //   },
-          //   {
-          //     title: "Marketing",
-          //     rows: [
-          //       {
-          //         id: services_metadata.marketing.content_generation.id,
-          //         title: "Generación de contenido"
-          //       }
-          //     ]
-          //   }
+          {
+            title: "Automatización",
+            rows: [
+              {
+                id: services_metadata.automatization.chatbot.id,
+                title: "Chatbots de Whatsapp"
+              },
+              {
+                id: services_metadata.automatization.promotions.id,
+                title: "Campañas automatizadas"
+              }
+            ]
+          },
+          {
+            title: "Marketing",
+            rows: [
+              {
+                id: services_metadata.marketing.content_generation.id,
+                title: "Generación de contenido"
+              }
+            ]
+          }
         ]
       }
     }
@@ -78,7 +78,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       "type": "list",
       "header": {
         "type": "text",
-        "text": "<HEADER_TEXT>"
+        "text": "Servicios de *Telemark*"
       },
       "body": {
         "text": "<BODY_TEXT>"
@@ -126,7 +126,7 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
   sendWppRequest({
     method: 'POST',
-    data: anotherServicesList,
+    data: servicesList,
     phone_number_id: my_phone_number,
   });
   return;
