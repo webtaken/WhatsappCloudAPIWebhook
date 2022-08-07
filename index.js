@@ -9,7 +9,7 @@ const CommandSelector = require("./commands/CommandSelector");
 const AyudaCommand = require("./commands/AyudaCommand");
 const ErrorCommand = require("./commands/ErrorCommand");
 const QuienesSomosCommand = require("./commands/QuienesSomosCommand");
-const ServiciosCommand = require("./commands/ServiciosCommand").ServiciosCommand;
+const ServiciosCommandsGroup = require("./commands/ServiciosCommandGroup");
 
 require("dotenv").config();
 
@@ -59,36 +59,44 @@ app.post("/webhook", (req, res) => {
     let command = CommandSelector(extracted_data.message);
     // si no es nulo proseguimos
     if (command) {
-      switch (command) {
-        case "!ayuda":
-          // enviamos el mensaje de ayuda
-          AyudaCommand(
-            extracted_data.my_phone_number,
-            extracted_data.sender_name,
-            extracted_data.sender_phone_number);
-          break;
-        case "!quienes_somos":
-          QuienesSomosCommand(
-            extracted_data.my_phone_number,
-            extracted_data.sender_name,
-            extracted_data.sender_phone_number);
-          break;
-        case "!servicios":
-          ServiciosCommand(
-            extracted_data.my_phone_number,
-            extracted_data.sender_name,
-            extracted_data.sender_phone_number);
-          break;
-        case "!contacto":
-          break;
-        default: // por defecto se manejará como error
-          ErrorCommand(
-            extracted_data.my_phone_number,
-            extracted_data.sender_name,
-            extracted_data.sender_phone_number);
-          break;
+      if (command === "!ayuda") {
+        // enviamos el mensaje de ayuda
+        AyudaCommand(
+          extracted_data.my_phone_number,
+          extracted_data.sender_name,
+          extracted_data.sender_phone_number);
       }
+      else if (command === "!quienes_somos") {
+        QuienesSomosCommand(
+          extracted_data.my_phone_number,
+          extracted_data.sender_name,
+          extracted_data.sender_phone_number);
+      }
+      else if (command === "!contacto") {
 
+      }
+      else if (command.startsWith("!servicios")) {
+        // en este caso verificaremos que nuestro comando comience con el string "!servicios"
+        if (command === "!servicios") {
+          // si solo contiene el string "!servicios" quiere decir que el usuario únicamente
+          // quiere ver la lista de servicios
+          ServiciosCommandsGroup.ServiciosCommand(
+            extracted_data.my_phone_number,
+            extracted_data.sender_name,
+            extracted_data.sender_phone_number);
+        } else {
+          // si no solo es "!servicios" quiere decir que hemos recibido el identificador
+          // extra de un servicio seleccionado por el usuario
+
+        }
+      } else if (command === "!contacto") {
+
+      } else {
+        ErrorCommand(
+          extracted_data.my_phone_number,
+          extracted_data.sender_name,
+          extracted_data.sender_phone_number);
+      }
     }
     res.sendStatus(200);
   } else {

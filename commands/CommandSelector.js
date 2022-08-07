@@ -11,6 +11,14 @@ const CommandSelector = (message) => {
     let command = command_split[0];
     return command;
   }
+  else if (message.type === "interactive") {
+    if (message.interactive === "list_reply") {
+      // cuando es la respuesta de una lista entonces el usuario seleccionó un servicio de la lista
+      // retornamos el string "!servicios <id_de_la_respuesta>"
+      const command = `!servicios ${message.interactive.list_reply.id}`;
+      return command;
+    }
+  }
   return null;
 };
 

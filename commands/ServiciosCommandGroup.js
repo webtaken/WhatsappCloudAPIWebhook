@@ -4,7 +4,10 @@ let services_metadata = {
   automatization: {
     chatbot: {
       id: "automatization_chatbot_1",
-      description: "Automatiza la mensajería 🗨 con tus clientes mediante un chatbot 🤖 para *Whatsapp* totalmente personalizado para las necesidades de tu negocio, contáctanos para mostrarte una demo."
+      send_description: () => {
+
+        "Automatiza la mensajería 🗨 con tus clientes mediante un chatbot 🤖 para *Whatsapp* totalmente personalizado para las necesidades de tu negocio, contáctanos para mostrarte una demo."
+      }
     },
     promotions: {
       id: "automatization_promotions_2",
@@ -35,9 +38,6 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
       },
       body: {
         text: `Hola ${username}, a continuación te mostramos la lista de nuestros servicios, selecciona un servicio de cada sección para ver su descripción o también puedes seleccionar la opción *PDF* para descargar nuestro documento 📄 de presentación donde te mostramos todos los servicios.`
-      },
-      footer: {
-        text: "Lista de servicios"
       },
       action: {
         button: "Ver servicios",
