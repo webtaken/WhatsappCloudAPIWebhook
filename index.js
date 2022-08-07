@@ -87,7 +87,36 @@ app.post("/webhook", (req, res) => {
         } else {
           // si no solo es "!servicios" quiere decir que hemos recibido el identificador
           // extra de un servicio seleccionado por el usuario
-          console.log("mi comando: ", command);
+          const servicio_command_id = command.split(' ')[1];
+          if (servicio_command_id ===
+            ServiciosCommandsGroup.services_data.automatization.chatbot.id) {
+            // el usuario quiere ver el servicio de chatbot
+            ServiciosCommandsGroup.SendChatbotServiceInformation(
+              extracted_data.my_phone_number,
+              extracted_data.sender_phone_number
+            );
+          } else if (servicio_command_id ===
+            ServiciosCommandsGroup.services_data.automatization.promotions.id) {
+            // el usuario quiere ver el servicio de promociones automatizadas
+            ServiciosCommandsGroup.SendPromotionsServiceInformation(
+              extracted_data.my_phone_number,
+              extracted_data.sender_phone_number
+            );
+          } else if (servicio_command_id ===
+            ServiciosCommandsGroup.services_data.marketing.content_generation.id) {
+            // el usuario quiere ver el servicio de generación de contenido
+            ServiciosCommandsGroup.SendContentGenerationServiceInformation(
+              extracted_data.my_phone_number,
+              extracted_data.sender_phone_number
+            );
+          } else if (servicio_command_id ===
+            ServiciosCommandsGroup.services_data.services_file.id) {
+            // el usuario quiere ver el documento de archivos
+            ServiciosCommandsGroup.SendServicesFile(
+              extracted_data.my_phone_number,
+              extracted_data.sender_phone_number
+            );
+          }
         }
       } else if (command === "!contacto") {
 
