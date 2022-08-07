@@ -87,7 +87,7 @@ app.post("/webhook", (req, res) => {
         } else {
           // si no solo es "!servicios" quiere decir que hemos recibido el identificador
           // extra de un servicio seleccionado por el usuario
-          console.log(command);
+          console.log("mi comando: ", command);
         }
       } else if (command === "!contacto") {
 
