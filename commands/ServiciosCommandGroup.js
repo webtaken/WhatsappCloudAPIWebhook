@@ -1,29 +1,30 @@
 const SendDocumentMessage = require('../EssentialFunctions/SendDocumentMessage');
 const SendTextMessage = require('../EssentialFunctions/SendTextMessage');
+const SendTextMessagePreviewUrl = require('../EssentialFunctions/SendTextMessagePreviewUrl');
 const sendWppRequest = require('../FlowFunctions/sendWhatsappRequest');
 
 let services_data = {
   automatization: {
     chatbot: {
       id: "automatization_chatbot_1",
-      description: "Automatiza la mensajería 🗨 con tus clientes mediante un chatbot 🤖 para *Whatsapp* totalmente personalizado para las necesidades de tu negocio, contáctanos para mostrarte una demo."
+      description: "Automatiza la mensajería 💬 con tus clientes mediante un chatbot 🤖 para *Whatsapp*, todo totalmente personalizado para las necesidades de tu negocio, contáctanos para mostrarte una demo."
     },
     promotions: {
       id: "automatization_promotions_2",
-      description: "¿Deseas automatizar tus campañas promocionales 📊 y atraer nuevos clientes? hazlo automáticamente con nosotros, te ayudamos con la expansión de tu negocio informando a cada uno de tus clientes recurrentes cuándo se lanza una nueva promoción en tu negocio, así como la prospección de nuevos y potenciales clientes mediante el envío masivo de publicidad mediante whatsapp."
+      description: "Creamos campañas promocionales de manera automática para tu negocio 📊, atrae nuevos prospectos e informa a tus clientes recurrentes sobre las nuevas promociones 💬en tu negocio, todo totalmente personalizado para tus necesidades."
     }
   },
   marketing: {
     content_generation: {
       id: "marketing_content_generation_1",
-      description: "Brindamos el servicio de generación de contenido 🤳 para tu negocio. Generamos contenido para las principales redes sociales *(Instragram, Facebook, Tiktok, Whatsapp, etc)* para que puedas conectarte de una manera más cercana a tus clientes."
+      description: "Brindamos el servicio de generación de contenido 🤳para tu negocio. Generamos contenido para las principales redes sociales *(Instragram, Facebook, Tiktok, Whatsapp, etc)* para que puedas conectar de una manera más cercana a tus clientes."
     }
   },
   // este es un campo extra no un servicio
   services_file: {
     id: "file_services_content",
     filename: "Servicios de Telemark",
-    file_link: "",
+    file_link: "https://drive.google.com/file/d/1bMvQwdA4Je_QVvivKVDfS6IrK3XUVqQF/view?usp=sharing",
   }
 };
 
@@ -106,11 +107,8 @@ const SendContentGenerationServiceInformation = (my_phone_number, to_phone_numbe
 };
 
 const SendServicesFile = (my_phone_number, to_phone_number) => {
-  const servicesFileConf = {
-    link: services_data.services_file.file_link,
-    caption: services_data.services_file.filename
-  }
-  SendDocumentMessage(my_phone_number, to_phone_number, servicesFileConf);
+  const servicesFileText = `Visualiza nuestros servicios en: ${services_data.services_file.file_link}`;
+  SendTextMessagePreviewUrl(my_phone_number, to_phone_number, servicesFileText);
 };
 
 module.exports.ServiciosCommand = ServiciosCommand;

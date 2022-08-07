@@ -10,6 +10,7 @@ const AyudaCommand = require("./commands/AyudaCommand");
 const ErrorCommand = require("./commands/ErrorCommand");
 const QuienesSomosCommand = require("./commands/QuienesSomosCommand");
 const ServiciosCommandsGroup = require("./commands/ServiciosCommandGroup");
+const ContactoCommand = require("./commands/ContactoCommand");
 
 require("dotenv").config();
 
@@ -73,7 +74,10 @@ app.post("/webhook", (req, res) => {
           extracted_data.sender_phone_number);
       }
       else if (command === "!contacto") {
-
+        ContactoCommand(
+          extracted_data.my_phone_number,
+          extracted_data.sender_name,
+          extracted_data.sender_phone_number);
       }
       else if (command.startsWith("!servicios")) {
         // en este caso verificaremos que nuestro comando comience con el string "!servicios"
@@ -118,8 +122,6 @@ app.post("/webhook", (req, res) => {
             );
           }
         }
-      } else if (command === "!contacto") {
-
       } else {
         ErrorCommand(
           extracted_data.my_phone_number,
