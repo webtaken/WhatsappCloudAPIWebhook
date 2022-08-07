@@ -74,6 +74,10 @@ app.post("/webhook", (req, res) => {
             extracted_data.sender_phone_number);
           break;
         case "!servicios":
+          ServiciosCommand(
+            extracted_data.my_phone_number,
+            extracted_data.sender_name,
+            extracted_data.sender_phone_number);
           break;
         case "!contacto":
           break;
