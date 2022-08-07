@@ -24,7 +24,6 @@ const ServiciosCommand = (my_phone_number, username, to_phone_number) => {
 
   const servicesList = {
     messaging_product: "whatsapp",
-    preview_url: false,
     recipient_type: "individual",
     to: to_phone_number,
     type: "interactive",
