@@ -21,7 +21,6 @@ app.listen(app_port, () => {
   console.log(`Webhook is running on port ${app_port}.`);
 });
 
-const app_token = process.env.APP_TOKEN;
 const webhook_token = process.env.WEBHOOK_TOKEN;
 
 // to verify the callback url from dashboard side - cloud api side

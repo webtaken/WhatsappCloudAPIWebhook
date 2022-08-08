@@ -17,7 +17,7 @@ let services_data = {
   marketing: {
     content_generation: {
       id: "marketing_content_generation_1",
-      description: "Brindamos el servicio de generación de contenido 🤳para tu negocio. Generamos contenido para las principales redes sociales *(Instragram, Facebook, Tiktok, Whatsapp, etc)* para que puedas conectar de una manera más cercana a tus clientes."
+      description: "Brindamos el servicio de generación de contenido 🤳para tu negocio. Generamos contenido para las principales redes sociales *(Instragram, Facebook, Tiktok, Whatsapp, etc)* para que puedas conectar de una manera más cercana con tus clientes."
     }
   },
   // este es un campo extra no un servicio

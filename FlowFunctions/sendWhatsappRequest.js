@@ -1,7 +1,6 @@
 const axios = require("axios");
 
 const app_token = process.env.APP_TOKEN;
-const webhook_token = process.env.WEBHOOK_TOKEN;
 
 const sendWppRequest = (conf) => {
   axios(
